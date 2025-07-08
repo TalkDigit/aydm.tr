@@ -695,7 +695,7 @@ class SysSeeder extends Seeder
                 'group_key' => 'op-doc-forms',
             ],[
                 'parent_id' => 0,
-                'title'     => 'Daireler Ana Form',
+                'title'     => 'Linkler Ana Form',
                 'ttitle'    => 'Documents',
                 'ctitle'    => 'type_id',
                 'op_key'    => 'op-doc-link-form',
