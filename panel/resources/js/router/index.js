@@ -26,9 +26,9 @@ const router = createRouter({
       component: Panel,
       //meta: { requiresAuth: true },
       children: [
-        { path: "/panel", name: 'Index', component: PIndex },
-       
-        { path: "/panel/users", name: 'UserList', component: UserList },
+        //{ path: "/panel", name: 'Index', component: PIndex },
+        { path: "/panel",                 name: 'Index',    component: LinkList },
+        { path: "/panel/users",           name: 'UserList', component: UserList },
         { path: "/panel/users/form/:id?", name: 'UserForm', component: UserForm },
         { path: "/panel/links/form/:id?", name: 'LinkForm', component: LinkForm },
         { path: "/panel/links",           name: 'LinkList', component: LinkList },

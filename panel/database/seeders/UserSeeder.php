@@ -37,6 +37,7 @@ class UserSeeder extends Seeder
         // 4000 gdz elektrik
         $users = [
             ['op-pert-admin','Admin Kadir','kbbozat41@hotmail.com','Kadir412.','5438826276'],
+            ['op-pert-admin','Admin Talk','admin@talk.com','Talk412.','5438826276'],
             //['op-pert-buyer','Normal Kullanıcı','falanboyle41@test.com','Kadir412.','5434465454'],
         ];
 
