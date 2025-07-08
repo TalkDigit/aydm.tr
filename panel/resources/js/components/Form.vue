@@ -238,7 +238,7 @@
                 row.classList.add('dform-row');
                 if(selector == null){
                     target = document.querySelector('.area-target[data-tag="'+tag+'"]');
-                    row.classList.add('mb-10','mt-10','col-6','card','card-full');
+                    row.classList.add('mb-10','mt-10','col-10','card','card-full');
                     rowSub.classList.add('card-body');
                 }else{
                     row.classList.add('row');
@@ -794,10 +794,10 @@
                 row.appendChild(rowSub);
 
 
-                const rmvBtn = document.createElement('a');
-                rmvBtn.classList.add('btn','btn-sm','btn-outline-danger','w-100','btn-block');
-                rmvBtn.href  = 'javascript:;';
-                rmvBtn.onclick = () => {
+                const saveBtn = document.createElement('a');
+                saveBtn.classList.add('btn','btn-sm','btn-primary','d-flex','justify-content-center','align-items-center');
+                saveBtn.href  = 'javascript:;';
+                saveBtn.onclick = () => {
                     /*if(!rowId.toString().includes('new')){
                         this.formData.removedData.push({
                             id    : rowId,
@@ -806,19 +806,22 @@
                     }else{
                         delete this.formData.dynamicF[tag+'**'+rowId];
                     }*/
-                    row.remove();
+                    //row.remove();
+                    this.formCallback();
                 };
-                rmvBtn.innerHTML = `<i class="ki-duotone ki-trash fs-5">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span><span class="path3"></span>
-                                    <span class="path4"></span><span class="path5"></span></i> Sil`;
+                saveBtn.style.width = '150px;'
+                saveBtn.style.float = 'right';
+                saveBtn.innerHTML   = `<i class="ph ph-floppy-disk fs-5 me-2" style="color:white !important"></i> Kaydet`;
+                document.querySelector('.fab-wrapper').hidden = true;
+
+
                 const footer = document.createElement('div');
                 footer.classList.add('card-body');
-                footer.appendChild(rmvBtn);
+                footer.appendChild(saveBtn);
 
                 row.appendChild(footer);
 
-                if(form?.showRemoveButton == false) rmvBtn.remove();
+                //if(form?.showRemoveButton == false) rmvBtn.remove();
             
                 if(form?.isFoldable && data?.entities[form?.foldableTag] !== undefined ){
                     const collBtn = document.createElement('button');
@@ -842,6 +845,9 @@
                 }
 
                 target.appendChild(row);
+
+
+
 
                 //for section seperation
                 if(form?.isFoldable) target.appendChild(document.createElement('hr'));

@@ -58,6 +58,7 @@
             return {
                 plib : new Plib(),
                 navigationStore : useNavigationStore(),
+                sysUrl : document.querySelector('input[name="sys_url"]').value.trim()
             }
         },
         methods: {
@@ -81,15 +82,34 @@
                         key   : 'short_link',
                         order : true,
                         type  : 'string', // if column is string then make type string
+                        columnClick : (elm,rowData) => {
+                            window.open(this.sysUrl+rowData.short_link, '_blank').focus();
+                        },
+                        columnFormatter:(elm,rowData,columnData)=>{
+                            //this method will manuplate column content
+                            //console.log(elm,rowData);
+
+                            return '<i class="ph ph-share-fat me-2"></i>'+columnData;
+                        },
                     },{
                         title : 'Uzun Link',
                         key   : 'long_link',
                         order : true,
                         type  : 'string', // if column is string then make type string
+                        columnClick : () => {
+                            window.open(rowData.long_link, '_blank').focus();
+                        },
+                        columnFormatter:(elm,rowData,columnData)=>{
+                            //this method will manuplate column content
+                            //console.log(elm,rowData);
+
+                            return '<i class="ph ph-share-fat me-2"></i>'+columnData;
+                        },
                     },{
                         title : 'Tıklama Sayısı',
                         key   : 'click_count',
                         order : true,
+                        
                         type  : 'string', // if column is string then make type string
                     },{
                         title : 'Oluşturma Tarihi',
@@ -104,6 +124,16 @@
                         columnFormatter : (elm,rowData,columnData) => {
                             const div = document.createElement('div');
                             div.classList.add('row','justify-content-center');
+
+                            const copy       = document.createElement('a');
+                            copy.href        = 'javascript:;';
+                            copy.style.width = 'auto';
+                            copy.innerHTML   = '<i class="fc-icon fc-icon- fs-4 ph ph-copy" role="img"></i>';
+                            copy.onclick     = () => {
+                                navigator.clipboard.writeText(this.sysUrl+rowData.short_link);
+                                this.plib.toast(this.Swal,'success','Link Kopyalandı..',() => {});
+                            };
+                            div.appendChild(copy);
 
                             const edit       = document.createElement('a');
                             edit.href        = '/panel/links/form/'+columnData;
