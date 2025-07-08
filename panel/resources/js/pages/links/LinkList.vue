@@ -146,16 +146,31 @@
                             del.style.width = 'auto';
                             del.innerHTML   = '<i class="fc-icon fc-icon- fs-4 ph ph-x-circle"  role="img"></i>';
                             del.onclick     = async () => {
-                                this.navigationStore.toggle(true);
-                                await this.plib.request({
-                                    url      : '/api/v1/document/'+columnData,
-                                    method   : 'DELETE',
-                                },null);
+                                this.Swal.fire({
+                                    title: "Silmek İstediğinize Eminmisiniz ?",
+                                    showDenyButton: true,
+                                    showCancelButton: false,
+                                    confirmButtonText: "Sil",
+                                    denyButtonText: 'İptal'
+                                }).then(async (result) => {
+                                    /* Read more about isConfirmed, isDenied below */
+                                    if (result.isConfirmed) {
+                                        this.navigationStore.toggle(true);
+                                        await this.plib.request({
+                                            url      : '/api/v1/document/'+columnData,
+                                            method   : 'DELETE',
+                                        },null);
 
-                                this.table.deleteRow(columnData);
-                                setTimeout(() => {
-                                    this.navigationStore.toggle(false);
-                                }, 300);
+                                        this.table.deleteRow(columnData);
+                                    } else if (result.isDenied) {
+                                        this.Swal.close();
+                                    }
+
+                                    setTimeout(() => {
+                                        this.navigationStore.toggle(false);
+                                    }, 300);
+                                });
+
                                 
                             };
                             div.appendChild(del);
