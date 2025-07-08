@@ -96,7 +96,7 @@
                         key   : 'long_link',
                         order : true,
                         type  : 'string', // if column is string then make type string
-                        columnClick : () => {
+                        columnClick : (elm,rowData) => {
                             window.open(rowData.long_link, '_blank').focus();
                         },
                         columnFormatter:(elm,rowData,columnData)=>{
