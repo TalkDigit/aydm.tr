@@ -42,8 +42,8 @@ body {
             <h2 class="fs-6 m-0 ps-3 text-body-emphasis" style="color:black !important">{{ navigationStore.currentTitle }}</h2>
             <nav aria-label="breadcrumb" class="d-none d-sm-flex ms-8">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" v-for="item in navigationStore.breadcrumps">
-                      <a :href=item.url>{{ item.title }}</a>
+                    <li class="breadcrumb-item"  v-for="item in navigationStore.breadcrumps">
+                      <a :href=item.url  style="color:black !important">{{ item.title }}</a>
                     </li>
                 </ol>
             </nav>
