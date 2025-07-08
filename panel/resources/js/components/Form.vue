@@ -855,6 +855,9 @@
     label{
         color: black !important;
     }
+    input::placeholder{
+        color: black !important;
+    }
     input{
         color: black !important;
         border-color: #dbe0eb !important;
