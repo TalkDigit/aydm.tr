@@ -1,0 +1,10 @@
+{
+    "top.logout": "Çıkış",
+    "menu.home" : "Anasayfa",
+    "menu.transactions" : "Hareketler",
+
+    "menu.users" : "Kullanıcılar",
+    "menu.users.list" : "Kullanıcı Listesi",
+    "form.users" : "Kullanıcı Ekle / Düzenle"
+
+}
