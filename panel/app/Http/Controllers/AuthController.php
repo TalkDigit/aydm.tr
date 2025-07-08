@@ -55,7 +55,7 @@ class AuthController extends Controller
                 $data[$row['Key']] = $row['Value'];
             }
 
-            return redirect($data['long_link'], 301); 
+            return redirect($data['long_link'], 302); 
         }else{
             abort(404);
         }
