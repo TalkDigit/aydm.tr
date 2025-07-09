@@ -122,7 +122,7 @@
                                         name     : 'category',
                                         col      : 6,
                                         required : true,
-                                        label    : 'Tip',
+                                        label    : 'Kategori',
                                         options  : [
                                             {
                                                 text  : 'Aydem Perakende',
