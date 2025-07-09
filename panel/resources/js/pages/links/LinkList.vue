@@ -106,6 +106,12 @@
                             return '<i class="ph ph-share-fat me-2"></i>'+columnData;
                         },
                     },{
+                        title : 'Kategori',
+                        key   : 'category',
+                        order : true,
+                        type  : 'string', // if column is string then make type string
+                        columnFormatter:(elm,rowData,columnData) => columnData ?? ''
+                    },{
                         title : 'Tıklama Sayısı',
                         key   : 'click_count',
                         order : true,

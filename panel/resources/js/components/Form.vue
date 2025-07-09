@@ -112,10 +112,39 @@
                                         class : ['form-control','mb-2','mb-md-0','form-item'],
                                         type  : 'text',
                                         name  : 'title',
-                                        col      : 12,
+                                        col      : 6,
                                         required : true,
                                         label : 'Başlık',
                                         oninput : (e) => this.submitDynamicChanges(e.target)
+                                    },{
+                                        class    : ['form-control','mb-2','mb-md-0','date-input','form-item'],
+                                        type     : 'select',
+                                        name     : 'category',
+                                        col      : 6,
+                                        required : true,
+                                        label    : 'Tip',
+                                        options  : [
+                                            {
+                                                text  : 'Aydem Perakende',
+                                                value : 'Aydem Perakende'
+                                            },{
+                                                text  : 'Gediz Perakende',
+                                                value : 'Gediz Perakende'
+                                            },{
+                                                text  : 'Aydem Yenilenebilir',
+                                                value : 'Aydem Yenilenebilir'
+                                            },{
+                                                text  : 'Aydem Enerji',
+                                                value : 'Aydem Enerji'
+                                            },{
+                                                text  : 'Adm Elektrik',
+                                                value : 'Adm Elektrik'
+                                            },{
+                                                text  : 'Gdz Elektrik',
+                                                value : 'Gdz Elektrik'
+                                            }
+                                        ],
+                                        oninput  : (e) => this.submitDynamicChanges(e.target)
                                     },{
                                         class : ['form-control','mb-2','mb-md-0','form-item'],
                                         type  : 'text',
@@ -864,6 +893,7 @@
     input::placeholder{
         color: black !important;
     }
+    select,
     input{
         color: black !important;
         border-color: #dbe0eb !important;
